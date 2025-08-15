@@ -140,9 +140,6 @@ void ksu_apply_kernelsu_rules()
 	ksu_allow(db, "system_server", KERNEL_SU_DOMAIN, "process", "getpgid");
 	ksu_allow(db, "system_server", KERNEL_SU_DOMAIN, "process", "sigkill");
 
-	// https://android-review.googlesource.com/c/platform/system/logging/+/3725346
-	ksu_dontaudit(db, ALL, KERNEL_SU_DOMAIN, "dir", "getattr");
-
 #ifdef CONFIG_KSU_SUSFS
 	// Allow umount in zygote process without installing zygisk
 	ksu_allow(db, "zygote", "labeledfs", "filesystem", "unmount");
